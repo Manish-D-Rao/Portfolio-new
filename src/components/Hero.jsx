@@ -1,14 +1,14 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ArrowDown, Github, Linkedin, Mail, Twitter, ChevronRight } from "lucide-react";
-import InteractiveCanvas from "./InteractiveCanvas.jsx";
+import { ChevronRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import { PERSONAL_INFO } from "../data.js";
+import InteractiveCanvas from "./InteractiveCanvas.jsx";
 
 const ROTATING_ROLES = [
+  "Full Stack Developer",
   "MERN Stack Engineer",
-  "React Specialist",
-  "Node.js Microservices Architect",
-  "Interactive UI Craftsman"
+  "React & Node.js Developer",
+  "Building Modern Web Experiences",
 ];
 
 export default function Hero({ scrollToSection }) {
@@ -56,7 +56,7 @@ export default function Hero({ scrollToSection }) {
       <div className="absolute bottom-1/3 right-1/4 w-[28vw] h-[28vw] rounded-full bg-purple-500/5 glow-orb-secondary -z-10 pointer-events-none" />
 
       {/* Tech grid overlay */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none -z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-black to-transparent pointer-events-none -z-10" />
 
       <div className="max-w-4xl mx-auto text-center z-10 select-none">
         {/* Upper Micro Banner */}
@@ -80,7 +80,7 @@ export default function Hero({ scrollToSection }) {
           className="font-display text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter leading-none mb-4 uppercase"
         >
           <span className="text-white/95">Manish </span>
-          <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 bg-clip-text text-transparent drop-shadow-sm">
+          <span className="bg-linear-to-r from-cyan-400 via-sky-400 to-purple-500 bg-clip-text text-transparent drop-shadow-sm">
             Rao
           </span>
         </motion.h1>
@@ -200,7 +200,7 @@ export default function Hero({ scrollToSection }) {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="w-2 h-2 rounded-full bg-gradient-to-b from-cyan-400 to-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.8)]"
+            className="w-2 h-2 rounded-full bg-linear-to-b from-cyan-400 to-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.8)]"
           />
         </button>
       </div>

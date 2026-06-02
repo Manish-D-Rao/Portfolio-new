@@ -7,25 +7,27 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="relative py-28 px-6 bg-zinc-950/20 border-t border-white/5 overflow-hidden">
+    <section
+      id="projects"
+      className="relative py-28 px-6 bg-zinc-950/20 border-t border-white/5 overflow-hidden"
+    >
       {/* Background visual spotlight elements */}
-      <div className="absolute top-1/4 right-0 w-[450px] h-[450px] rounded-full bg-purple-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-112.5 h-112.5 rounded-full bg-purple-500/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-cyan-400 font-semibold mb-3 block">
-              // ACTIVE ARCHIVES [WORK_SPACE]
-            </span>
             <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white uppercase">
-              Immersive System Showcases
+              Project Showcases
             </h2>
-            <div className="h-[2px] w-20 bg-gradient-to-r from-cyan-400 to-purple-500 mt-4 mx-auto md:mx-0" />
+            <div className="h-0.5 w-20 bg-linear-to-r from-cyan-400 to-purple-500 mt-4 mx-auto md:mx-0" />
           </div>
 
           <p className="max-w-md font-sans text-xs sm:text-sm text-slate-500 leading-relaxed font-normal text-center md:text-left md:mb-1">
-            Browse through concrete full-stack architectural builds. Click any card to expand high density breakdowns and tactical execution metrics.
+            A collection of projects focused on full-stack development, clean
+            architecture, modern UI, and building digital experiences that feel
+            smooth, interactive, and immersive.
           </p>
         </div>
 
@@ -46,7 +48,7 @@ export default function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 select-none grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 select-none grayscale group-hover:grayscale-0"
                   referrerPolicy="no-referrer"
                 />
 
@@ -58,11 +60,11 @@ export default function Projects() {
                 </div>
 
                 {/* Overlaid Glow Shadow gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/20 to-transparent pointer-events-none" />
               </div>
 
               {/* Card Body */}
-              <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
+              <div className="p-6 sm:p-8 grow flex flex-col justify-between">
                 <div>
                   <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-2 leading-snug group-hover:text-cyan-450 transition-colors uppercase">
                     {project.title}
@@ -97,7 +99,7 @@ export default function Projects() {
                       className="text-xs font-mono tracking-wider uppercase text-cyan-400 hover:text-cyan-300 font-bold inline-flex items-center gap-1.5 group/btn cursor-pointer"
                     >
                       <Compass className="w-3.5 h-3.5 animate-spin-slow group-hover/btn:rotate-45 transition-transform" />
-                      <span>Inspect Dossier</span>
+                      <span>Inspect Project</span>
                     </button>
 
                     <div className="flex items-center gap-4">
@@ -147,7 +149,7 @@ export default function Projects() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Background spotlight */}
-              <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-cyan-500/10 blur-[90px] pointer-events-none -z-10" />
+              <div className="absolute top-0 left-1/4 w-75 h-75 rounded-full bg-cyan-500/10 blur-[90px] pointer-events-none -z-10" />
 
               {/* Modal Header */}
               <div className="h-12 px-6 bg-zinc-900/90 border-b border-white/5 flex items-center justify-between sticky top-0 z-20 backdrop-blur-sm">
@@ -174,12 +176,12 @@ export default function Projects() {
                       className="w-full h-full object-cover grayscale-0"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none mx-[-1px] my-[-1px]" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none -mx-px -my-px" />
                   </div>
 
                   <div>
                     <h5 className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-3">
-                      // TECHNOLOGY SUITE
+                      TECH STACK
                     </h5>
                     <div className="flex flex-wrap gap-1.5">
                       {selectedProject.tech.map((t) => (
@@ -228,7 +230,7 @@ export default function Projects() {
 
                     {/* Highlights Bullet List */}
                     <h4 className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-4">
-                      // TACTICAL IMPLEMENTATION HIGHLIGHTS
+                      IMPLEMENTATION HIGHLIGHTS
                     </h4>
                     <ul className="flex flex-col gap-3.5">
                       {selectedProject.highlights.map((highlight, idx) => (

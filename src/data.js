@@ -1,163 +1,214 @@
-// Cinematic Developer Portfolio Data
-
 export const PERSONAL_INFO = {
   name: "Manish Rao",
-  title: "MERN Stack Engineer & Interactive UI Developer",
-  shortDesc: "Building high-performance, cinematic web architectures that bridge structural logic and beautiful interactive graphics.",
-  longDesc: "I am a full-stack engineer specializing in building smooth Node.js microservices and highly responsive web platforms. My work centers on creating rich, Apple-like interactive interfaces powered by rock-solid backend endpoints, with a heavy emphasis on design system precision and buttery fluid animations.",
-  resumeUrl: "#", // Placeholders for recruiter convenience
+
+  title: "Full Stack Developer & MERN Engineer",
+
+  shortDesc:
+    "Building modern full-stack applications with cinematic UI, scalable backend systems, and immersive digital experiences.",
+
+  longDesc: `I'm a Computer Science Engineering student and full-stack developer passionate about building modern web applications with clean design and smooth user experiences.
+I mainly work with the MERN stack and enjoy creating responsive frontends, scalable backend systems, and interactive UI that feels modern and immersive.
+
+Currently focused on improving my skills in full-stack development, DSA, and system design while building projects that push both my creativity and problem-solving abilities forward.`,
+
+  resumeUrl: "/Manish_D_Rao_Resume.pdf",
+
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com",
-    email: "manish.rao@dev.io",
+    github: "https://github.com/Manish-D-Rao",
+    linkedin: "https://linkedin.com/in/manishrao",
+    twitter: "https://x.com/Manish92144045",
+    email: "manishdrao1411@gmail.com",
   },
+
   stats: [
-    { value: "4+", label: "Years Experience" },
-    { value: "18+", label: "Completed Projects" },
-    { value: "99.9%", label: "System Uptime" },
-    { value: "240k+", label: "Lines of JS Written" },
+    {
+      value: "15+",
+      label: "PROJECTS BUILT",
+    },
+
+    {
+      value: "2nd",
+      label: "YEAR CSE STUDENT",
+    },
+
+    {
+      value: "99%",
+      label: "PASSION FOR LEARNING",
+    },
+
+    {
+      value: "240K+",
+      label: "LINES OF CODE & CONSOLE.LOGS",
+    },
   ],
 };
+
+// ================= SKILLS =================
 
 export const SKILL_CATEGORIES = [
   {
     category: "Frontend",
-    glowColor: "rgba(6, 182, 212, 0.15)", // Cyan
+
+    glowColor: "rgba(6, 182, 212, 0.15)",
+
     items: [
-      { name: "ReactJS", level: 95 },
-      { name: "Tailwind CSS", level: 98 },
-      { name: "Framer Motion", level: 92 },
-      { name: "GSAP", level: 85 },
-      { name: "Redux / Zustand", level: 90 },
-      { name: "NextJS", level: 88 },
+      { name: "React.js", level: 90 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "JavaScript", level: 88 },
+      { name: "HTML/CSS", level: 95 },
     ],
   },
+
   {
     category: "Backend",
-    glowColor: "rgba(168, 85, 247, 0.15)", // Purple
+
+    glowColor: "rgba(168, 85, 247, 0.15)",
+
     items: [
-      { name: "Node.js", level: 94 },
-      { name: "Express.js", level: 96 },
-      { name: "REST APIs", level: 98 },
-      { name: "GraphQL", level: 87 },
-      { name: "WebSockets", level: 91 },
-      { name: "JWT Auth & OAuth", level: 95 },
+      { name: "Node.js", level: 85 },
+      { name: "Express.js", level: 88 },
+      { name: "MongoDB", level: 84 },
+      { name: "REST APIs", level: 90 },
+      { name: "JWT Authentication", level: 82 },
+      { name: "Socket.io", level: 76 },
     ],
   },
+
   {
-    category: "Database",
-    glowColor: "rgba(34, 197, 94, 0.15)", // Green
+    category: "Tools & Platforms",
+
+    glowColor: "rgba(249, 115, 22, 0.15)",
+
     items: [
-      { name: "MongoDB", level: 92 },
-      { name: "PostgreSQL", level: 89 },
-      { name: "Redis Cache", level: 85 },
-      { name: "Firebase Firestore", level: 90 },
+      { name: "Git & GitHub", level: 90 },
+      { name: "Postman", level: 84 },
+      { name: "VS Code", level: 98 },
+      { name: "Vercel", level: 82 },
+      { name: "Render", level: 78 },
     ],
   },
+
   {
-    category: "Tools & DevOps",
-    glowColor: "rgba(249, 115, 22, 0.15)", // Orange
+    category: "Currently Exploring",
+
+    glowColor: "rgba(34, 197, 94, 0.15)",
+
     items: [
-      { name: "Git / GitHub", level: 95 },
-      { name: "Vite / Webpack", level: 92 },
-      { name: "Docker", level: 84 },
-      { name: "AWS (S3/EC2)", level: 80 },
-      { name: "CI/CD Pipelines", level: 85 },
+      { name: "Data Structures", level: 30 },
+      { name: "System Design", level: 0 },
+      { name: "AI/ML Basics", level: 5 },
+      { name: "Three.js", level: 0 },
+      { name: "GSAP", level: 0 },
+      { name: "Framer Motion", level: 0 },
     ],
   },
 ];
+
+// ================= TIMELINE =================
 
 export const TIMELINE = [
   {
-    period: "2024 - Present",
-    role: "Senior Full Stack Engineer",
-    company: "Aether Labs",
-    desc: "Architected high-throughput web portals and custom live-monitoring dashboards for Web3 and IoT networks. Guided team of 4 frontend engineers, established standard modern canvas animations, and shaved 34% off initial site bundle metrics.",
+    period: "2024",
+
+    role: "Computer Science Engineering Student",
+
+    company: "NMAM Institute of Technology",
+
+    desc: "Started my journey in Computer Science Engineering while exploring software development, programming fundamentals, and modern technologies.",
   },
+
   {
-    period: "2022 - 2024",
-    role: "MERN Stack Developer",
-    company: "Quantum Ventures",
-    desc: "Built scalable CRM widgets and responsive consumer checkouts using Node, Express, and MongoDB. Constructed real-time collaboration canvas integrations using WebSockets and localized indexing algorithms.",
+    period: "2024",
+
+    role: "DSA & Problem Solving",
+
+    company: "Self Learning",
+
+    desc: "Began learning Data Structures & Algorithms to strengthen problem-solving skills and prepare for software engineering interviews.",
   },
+
   {
-    period: "2021 - 2022",
-    role: "Frontend Engineer Intern",
-    company: "PixelCraft Agency",
-    desc: "Iterated interactive customer portfolios, implemented intricate CSS/SVG vector morphs, and configured dynamic headless Shopify themes.",
+    period: "2024",
+
+    role: "MERN Stack Development",
+
+    company: "Self Learning",
+
+    desc: "Learned full-stack web development using React.js, Node.js, Express.js, and MongoDB while building responsive and scalable applications.",
   },
+
   {
-    period: "2018 - 2021",
-    role: "B.S. Computer Science",
-    company: "Syracuse University",
-    desc: "Specialized in Human-Computer Interaction, distributed systems, and real-time network programming. Graduated with honors.",
+    period: "2025",
+
+    role: "Project Development",
+
+    company: "Personal Projects",
+
+    desc: "Built my first complete full-stack project while improving frontend development, backend architecture, and real-world problem solving skills.",
   },
 ];
 
+// ================= PROJECTS =================
+
 export const PROJECTS = [
   {
-    id: "nebula-sync",
-    title: "Nebula Workspace Sync",
-    badge: "Featured Space",
-    short: "Real-time collaborative workspace with visual whiteboard, multiplayer cursors, and local sync engines.",
-    desc: "A stunning cinematic multi-user workspace featuring infinite nesting boards, vector editing canvases, conflict-free replicated data systems (LWW-Element-Register), and atomic server updates via Node/Redis channels.",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
-    tech: ["React", "Express.js", "Redis", "MongoDB", "WebSockets", "Framer Motion"],
-    github: "https://github.com",
-    demo: "https://demo.io",
+    id: "Interview-X",
+
+    title: "Interview-X",
+
+    badge: "MOCK INTERVIEW PLATFORM",
+
+    short:
+      "Full-stack mock interview platform designed to help users practice technical interviews in a modern interactive environment.",
+
+    desc: "A modern mock interview platform built to simulate real interview experiences with authentication, responsive UI, and structured interview workflows for better preparation and practice.",
+
+    image: "/interview-x.png",
+
+    tech: [
+      "React.js",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "Clerk",
+      "Inngest",
+      "Tailwind CSS",
+    ],
+
+    github: "https://github.com/Manish-D-Rao/INTERVIEW-X",
+
+    demo: "https://interview-x.onrender.com/",
+
     highlights: [
-      "Smooth collaborative canvas using optimized mouse state multiplexers",
-      "Robust state sync recovery backing indexedDB offline-first stores",
-      "Dynamic multi-user presence indicators with custom cursor trackers"
-    ]
+      "Responsive modern UI",
+      "Authentication & protected routes",
+      "Structured mock interview workflows",
+    ],
   },
   {
-    id: "quant-iq",
-    title: "QuantIQ High-Freq Terminal",
-    badge: "Data Stream",
-    short: "Cinematic real-time crypto asset tracker with immersive WebGL rendering and high-density financial analytics.",
-    desc: "A futuristic data deck visualizing high-frequency trading indices. Powered by real-time WebSocket feeds, it converts raw tick data into rich charts with adaptive zoom, volumetric candle meters, and dynamic sound triggers.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
-    tech: ["Node.js", "Express.js", "D3.js", "Tailwind CSS", "Recharts"],
-    github: "https://github.com",
-    demo: "https://demo.io",
+    id: "The-Ultimate-Chef",
+
+    title: "The Ultimate Chef",
+
+    badge: "RECIPE GENERATOR",
+
+    short:
+      "React-based recipe generator that creates recipes using ingredients provided by the user.",
+
+    desc: "A React application integrated with the Groq API that generates recipes based on user-provided ingredients. Users can enter more than four ingredients and receive dynamic recipe suggestions through a clean and interactive interface. [NOT DEPLOYED YET]",
+
+    image: "the-ultimate-chef.png",
+
+    tech: ["React.js", "Groq API", "CSS"],
+
+    github: "https://github.com/Manish-D-Rao/The-Ultimate-Chef",
+
+    demo: "#",
+
     highlights: [
-      "Millisecond precision candle charting with hardware-accelerated vectors",
-      "Live order-book cascade rendering 120 depth lists smoothly",
-      "Intelligent indicator overlays including MACD, RSI, and custom RSI triggers"
-    ]
+      "Recipe generation using Groq API",
+      "Dynamic ingredient-based suggestions",
+      "Clean interactive user interface",
+    ],
   },
-  {
-    id: "aether-wave",
-    title: "Aether Wavetable Synthesizer",
-    badge: "Creative Space",
-    short: "Immersive web synthesizer and audio sequencer with customized frequency sweep visuals.",
-    desc: "A clean, beautiful 3-oscillator synth running direct on the Web Audio API. Provides custom ADSR envelopes, visual frequency sweep overlays, and a loop sequencer mimicking digital workstation workflows.",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80",
-    tech: ["React.js", "Framer Motion", "Web Audio API", "Tailwind CSS"],
-    github: "https://github.com",
-    demo: "https://demo.io",
-    highlights: [
-      "Zero-latency low-pass, high-pass filter controls mapped to mouse gestures",
-      "Step-sequencer with micro-duration offsets for realistic rhythmic swing",
-      "Dynamic Canvas-based Oscilloscope mapping realtime waveform bytes"
-    ]
-  },
-  {
-    id: "chronos-core",
-    title: "Chronos Developer Engine",
-    badge: "Workflow",
-    short: "Terminal-inspired task planner with productivity charts, local sandboxes, and keyboard shortcuts.",
-    desc: "An elite productivity interface crafted for engineers. Combines clean keyboard-first task tracking with comprehensive time-series analytics, auto-gifting streak achievements, and fully secure server backups.",
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80",
-    tech: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT Sessioning"],
-    github: "https://github.com",
-    demo: "https://demo.io",
-    highlights: [
-      "100% keyboard-navigable interface with Vim-like shortcuts",
-      "Time-tracking ledger with customizable Pomodoro loop integrations",
-      "Beautiful dark graphical projections graphing productivity parameters"
-    ]
-  }
 ];

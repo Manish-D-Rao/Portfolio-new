@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Code2, Server, Database, Settings, ShieldAlert, Cpu } from "lucide-react";
+import {
+  Code2,
+  Server,
+  Database,
+  Settings,
+  ShieldAlert,
+  Cpu,
+} from "lucide-react";
 import { SKILL_CATEGORIES } from "../data.js";
 
 // Map lucide icons to categories
@@ -12,32 +19,32 @@ const CATEGORY_ICONS = {
 };
 
 export default function Skills() {
-  const [selectedCategory, setSelectedCategory] = useState(SKILL_CATEGORIES[0].category);
+  const [selectedCategory, setSelectedCategory] = useState(
+    SKILL_CATEGORIES[0].category,
+  );
 
   const activeCategoryData = SKILL_CATEGORIES.find(
-    (cat) => cat.category === selectedCategory
+    (cat) => cat.category === selectedCategory,
   );
 
   return (
     <section id="skills" className="relative py-28 px-6 bg-black">
       {/* Background neon orbs */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-100 h-100 rounded-full bg-cyan-500/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <span className="font-mono text-xs uppercase tracking-widest text-cyan-400 font-semibold mb-3 block">
-              // TECH TAXONOMY
-            </span>
             <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white uppercase">
-              Core Stack & Capabilities
+              TECH STACK & TOOLS
             </h2>
-            <div className="h-[2px] w-20 bg-gradient-to-r from-cyan-400 to-purple-500 mt-4 mx-auto md:mx-0" />
+            <div className="h-0.5 w-20 bg-linear-to-r from-cyan-400 to-purple-500 mt-4 mx-auto md:mx-0" />
           </div>
 
           <p className="max-w-md font-sans text-xs sm:text-sm text-slate-500 leading-relaxed font-normal text-center md:text-left md:mb-1">
-            Carefully curated skill sets matching the constraints of modern production environments, with zero dependency on bulk UI libraries.
+            A growing toolkit of technologies I use to build modern, scalable,
+            and visually engaging web applications.
           </p>
         </div>
 
@@ -111,20 +118,21 @@ export default function Skills() {
                 </h3>
                 <p className="font-sans text-sm text-slate-400 leading-relaxed font-normal">
                   {selectedCategory === "Frontend" &&
-                    "Crafting fluid client-side interfaces. I leverage Framer Motion and custom CSS variables to create cohesive, Apple-like web layouts that are responsive on any window viewport."}
+                    "Building responsive and modern frontend experiences using React, Tailwind CSS, and smooth animations that make interfaces feel clean, interactive, and immersive."}
                   {selectedCategory === "Backend" &&
-                    "Structuring high-velocity, modular services utilizing Express.js routing. Standardizing secure JWT bearer sessions, automated schema filtering, and custom response sanitizers."}
-                  {selectedCategory === "Database" &&
-                    "Organizing relational frameworks and flexible Document-Store collections. Optimized for indexing performance, high-speed Redis caching layers, and safe transactions."}
-                  {selectedCategory === "Tools & DevOps" &&
-                    "Structuring workflow processes. Rebuilding robust bundlers via Vite/esbuild, standardizing Git branches, managing safe Docker clusters, and automating live deployments."}
+                    "Building scalable backend systems using Node.js and Express.js with a focus on clean API architecture, authentication, database management, and efficient server-side performance."}
+                  {selectedCategory === "Tools & Platforms" &&
+                    "Using modern development tools and platforms like Git, GitHub, VS Code, Postman, Vercel and Render to streamline workflows, manage projects efficiently, and deploy scalable applications."}
+                  {selectedCategory === "Currently Exploring" &&
+                    "Currently exploring concepts in Data Structures, System Design, AI/ML, Three.js, GSAP, and Framer Motion while continuously learning how to build more scalable and visually immersive applications."}
                 </p>
               </div>
             </div>
 
             <div className="relative z-10 pt-8 border-t border-white/5 mt-8 lg:mt-0 flex items-center justify-between">
               <span className="font-mono text-[10px] text-zinc-500 lowercase">
-                class_group: {selectedCategory.replace(/\s+/g, "_").toLowerCase()}
+                class_group:
+                {selectedCategory.replace(/\s+/g, "_").toLowerCase()}
               </span>
               <span className="font-mono text-[9px] uppercase text-cyan-400 font-semibold tracking-widest animate-pulse">
                 SYS_READY
@@ -134,10 +142,6 @@ export default function Skills() {
 
           {/* Right panel: Active list of progressive skills with sliders */}
           <div className="lg:col-span-8 p-8 bg-zinc-950/20 border border-white/5 rounded-2xl flex flex-col gap-6">
-            <h4 className="font-mono text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-2">
-              // MODULE METRIC BAR GRADES
-            </h4>
-            
             <div className="flex flex-col gap-6">
               <AnimatePresence mode="popLayout">
                 {activeCategoryData?.items.map((skill, index) => (
@@ -164,7 +168,7 @@ export default function Skills() {
                         initial={{ width: 0 }}
                         animate={{ width: `${skill.level}%` }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="h-full bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 rounded-full"
+                        className="h-full bg-linear-to-r from-cyan-400 via-sky-400 to-purple-500 rounded-full"
                       />
                     </div>
                   </motion.div>

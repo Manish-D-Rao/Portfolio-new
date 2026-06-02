@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "motion/react";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  AnimatePresence,
+} from "motion/react";
 
 export default function CustomCursor() {
   const [mounted, setMounted] = useState(false);
@@ -97,7 +102,7 @@ export default function CustomCursor() {
           translateX: "-50%",
           translateY: "-50%",
         }}
-        className="fixed top-0 left-0 w-2 h-2 bg-gradient-to-r from-cyan-400 to-sky-400 rounded-full z-100 pointer-events-none mix-blend-screen"
+        className="fixed top-0 left-0 w-2 h-2 bg-linear-to-r from-cyan-400 to-sky-400 rounded-full z-100 pointer-events-none mix-blend-screen"
         animate={{
           scale: isHovered ? 1.5 : 1,
         }}
@@ -116,10 +121,14 @@ export default function CustomCursor() {
         animate={{
           width: isHovered ? 48 : 32,
           height: isHovered ? 48 : 32,
-          backgroundColor: isHovered ? "rgba(6, 182, 212, 0.08)" : "rgba(6, 182, 212, 0)",
-          borderColor: isHovered ? "rgba(6, 182, 212, 0.7)" : "rgba(6, 182, 212, 0.3)",
-          boxShadow: isHovered 
-            ? "0 0 15px rgba(6, 182, 212, 0.35)" 
+          backgroundColor: isHovered
+            ? "rgba(6, 182, 212, 0.08)"
+            : "rgba(6, 182, 212, 0)",
+          borderColor: isHovered
+            ? "rgba(6, 182, 212, 0.7)"
+            : "rgba(6, 182, 212, 0.3)",
+          boxShadow: isHovered
+            ? "0 0 15px rgba(6, 182, 212, 0.35)"
             : "0 0 0px rgba(6, 182, 212, 0)",
         }}
         transition={{ duration: 0.2, ease: "easeOut" }}

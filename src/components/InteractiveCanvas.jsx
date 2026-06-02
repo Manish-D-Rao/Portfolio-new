@@ -11,7 +11,7 @@ export default function InteractiveCanvas() {
       if (containerRef.current && canvasRef.current) {
         const { clientWidth, clientHeight } = containerRef.current;
         setDimensions({ width: clientWidth, height: clientHeight });
-        
+
         // Update canvas sizing
         const canvas = canvasRef.current;
         canvas.width = clientWidth;
@@ -40,7 +40,7 @@ export default function InteractiveCanvas() {
     const canvas = canvasRef.current;
     if (canvas) {
       const ctx = canvas.getContext("2d");
-      
+
       // Items coordinates
       const shapes = [
         {
@@ -163,12 +163,14 @@ export default function InteractiveCanvas() {
               let z = v.z * (shape.size / 2);
 
               // Rotate X
-              let cosX = Math.cos(shape.rotX), sinX = Math.sin(shape.rotX);
+              let cosX = Math.cos(shape.rotX),
+                sinX = Math.sin(shape.rotX);
               let y1 = y * cosX - z * sinX;
               let z1 = y * sinX + z * cosX;
 
               // Rotate Y
-              let cosY = Math.cos(shape.rotY), sinY = Math.sin(shape.rotY);
+              let cosY = Math.cos(shape.rotY),
+                sinY = Math.sin(shape.rotY);
               let x2 = x * cosY + z1 * sinY;
               let z2 = -x * sinY + z1 * cosY;
 
@@ -176,7 +178,9 @@ export default function InteractiveCanvas() {
             });
 
             // Projection vertices
-            const proj = rotated.map((r) => project(r.x, r.y, r.z, centerX, centerY));
+            const proj = rotated.map((r) =>
+              project(r.x, r.y, r.z, centerX, centerY),
+            );
 
             // Face connectivity
             const faces = [
@@ -190,7 +194,9 @@ export default function InteractiveCanvas() {
 
             // Calculate active face depths for rendering sort
             const faceWithDepth = faces.map((face, index) => {
-              const avgZ = face.reduce((sum, vertexIdx) => sum + rotated[vertexIdx].z, 0) / 4;
+              const avgZ =
+                face.reduce((sum, vertexIdx) => sum + rotated[vertexIdx].z, 0) /
+                4;
               return { face, avgZ, index };
             });
 
@@ -215,7 +221,6 @@ export default function InteractiveCanvas() {
               ctx.lineWidth = 1;
               ctx.stroke();
             });
-
           } else if (shape.type === "cylinder") {
             // Rotates around X and Y
             shape.rotX += shape.rotSpeedX;
@@ -240,12 +245,14 @@ export default function InteractiveCanvas() {
             const rotatePoint = (p) => {
               let { x, y, z } = p;
               // Rotate X
-              let cosX = Math.cos(shape.rotX), sinX = Math.sin(shape.rotX);
+              let cosX = Math.cos(shape.rotX),
+                sinX = Math.sin(shape.rotX);
               let y1 = y * cosX - z * sinX;
               let z1 = y * sinX + z * cosX;
 
               // Rotate Y
-              let cosY = Math.cos(shape.rotY), sinY = Math.sin(shape.rotY);
+              let cosY = Math.cos(shape.rotY),
+                sinY = Math.sin(shape.rotY);
               let x2 = x * cosY + z1 * sinY;
               let z2 = -x * sinY + z1 * cosY;
 
@@ -255,8 +262,12 @@ export default function InteractiveCanvas() {
             const rotTop = topPoints.map(rotatePoint);
             const rotBottom = bottomPoints.map(rotatePoint);
 
-            const projTop = rotTop.map((r) => project(r.x, r.y, r.z, centerX, centerY));
-            const projBottom = rotBottom.map((r) => project(r.x, r.y, r.z, centerX, centerY));
+            const projTop = rotTop.map((r) =>
+              project(r.x, r.y, r.z, centerX, centerY),
+            );
+            const projBottom = rotBottom.map((r) =>
+              project(r.x, r.y, r.z, centerX, centerY),
+            );
 
             // Draw vertical skeletal lines connecting top and bottom
             ctx.strokeStyle = "rgba(168, 85, 247, 0.15)";
@@ -292,18 +303,21 @@ export default function InteractiveCanvas() {
             ctx.fill();
             ctx.strokeStyle = shape.borderColor;
             ctx.stroke();
-
           } else if (shape.type === "sphere") {
             shape.pulse += 0.035;
             const currentPulse = Math.sin(shape.pulse) * 4;
             const currentRadius = shape.radius + currentPulse;
 
             const projObj = project(sx, sy, shape.z, centerX, centerY);
-            
+
             // Draw gradient halo
             const glowGrd = ctx.createRadialGradient(
-              projObj.x, projObj.y, currentRadius * 0.2,
-              projObj.x, projObj.y, currentRadius * 3.5
+              projObj.x,
+              projObj.y,
+              currentRadius * 0.2,
+              projObj.x,
+              projObj.y,
+              currentRadius * 3.5,
             );
             glowGrd.addColorStop(0, shape.color);
             glowGrd.addColorStop(0.2, "rgba(249, 115, 22, 0.3)");
@@ -316,8 +330,12 @@ export default function InteractiveCanvas() {
 
             // Draw physical center sphere
             const sphereGrd = ctx.createRadialGradient(
-              projObj.x - currentRadius * 0.3, projObj.y - currentRadius * 0.3, currentRadius * 0.1,
-              projObj.x, projObj.y, currentRadius
+              projObj.x - currentRadius * 0.3,
+              projObj.y - currentRadius * 0.3,
+              currentRadius * 0.1,
+              projObj.x,
+              projObj.y,
+              currentRadius,
             );
             sphereGrd.addColorStop(0, "#ffe0b2"); // White-yellow reflection dot
             sphereGrd.addColorStop(0.5, shape.color);
@@ -330,7 +348,15 @@ export default function InteractiveCanvas() {
 
             // Tiny orbit ring
             ctx.beginPath();
-            ctx.ellipse(projObj.x, projObj.y, currentRadius * 3.5, currentRadius * 1.5, Math.PI / 6, 0, 2 * Math.PI);
+            ctx.ellipse(
+              projObj.x,
+              projObj.y,
+              currentRadius * 3.5,
+              currentRadius * 1.5,
+              Math.PI / 6,
+              0,
+              2 * Math.PI,
+            );
             ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
             ctx.lineWidth = 1;
             ctx.stroke();

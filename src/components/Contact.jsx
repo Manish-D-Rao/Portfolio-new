@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Send, FileText, CheckCircle2, AlertTriangle, Terminal, Eye, History, Mail } from "lucide-react";
+import {
+  Send,
+  CheckCircle2,
+  AlertTriangle,
+  Terminal,
+  History,
+  Mail,
+} from "lucide-react";
 import { PERSONAL_INFO } from "../data.js";
 
 export default function Contact() {
@@ -15,7 +22,6 @@ export default function Contact() {
   const [responseStatus, setResponseStatus] = useState(null); // 'success' or 'error'
   const [statusMessage, setStatusMessage] = useState("");
   const [serverInquiries, setServerInquiries] = useState([]);
-  const [showInquiriesLog, setShowInquiriesLog] = useState(true);
 
   // Fetch registered messages on mount
   const fetchMessages = async () => {
@@ -43,7 +49,9 @@ export default function Contact() {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       setResponseStatus("error");
-      setStatusMessage("Please populate all necessary validation markers (Name, Email, Message).");
+      setStatusMessage(
+        "Please populate all necessary validation markers (Name, Email, Message).",
+      );
       return;
     }
 
@@ -61,37 +69,39 @@ export default function Contact() {
 
       if (res.ok) {
         setResponseStatus("success");
-        setStatusMessage(result.message || "Connection built! Message loaded into memory buffers.");
+        setStatusMessage(result.message || "Message Sent! Thank You!");
         setFormData({ name: "", email: "", subject: "", message: "" });
         // Refresh inquiries list
         fetchMessages();
       } else {
         setResponseStatus("error");
-        setStatusMessage(result.error || "System rejected payload. Please inspect inputs.");
+        setStatusMessage(
+          result.error || "Something went wrong. Please try again.",
+        );
       }
     } catch (err) {
       setResponseStatus("error");
-      setStatusMessage("Transient interface error. Express server unreachable.");
+      setStatusMessage("Internal Server Error");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="relative py-28 px-6 bg-zinc-950/20 border-t border-white/5 overflow-hidden">
+    <section
+      id="contact"
+      className="relative py-28 px-6 bg-zinc-950/20 border-t border-white/5 overflow-hidden"
+    >
       {/* Background ambient neon flare */}
-      <div className="absolute bottom-0 right-1/4 w-[350px] h-[350px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-1/4 w-87.5 h-87.5 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20 text-center sm:text-left">
-          <span className="font-mono text-xs uppercase tracking-widest text-cyan-400 font-semibold mb-3 block">
-            // TELEMETRY PORTAL
-          </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white uppercase">
             Let's build a connection
           </h2>
-          <div className="h-[2px] w-20 bg-gradient-to-r from-cyan-400 to-purple-500 mt-4 mx-auto sm:mx-0" />
+          <div className="h-0.5 w-20 bg-linear-to-r from-cyan-400 to-purple-500 mt-4 mx-auto sm:mx-0" />
         </div>
 
         {/* Layout Grid */}
@@ -104,7 +114,7 @@ export default function Contact() {
                 <div className="flex items-center gap-2">
                   <Terminal className="w-4 h-4 text-cyan-400" />
                   <span className="font-mono text-xs text-slate-400 tracking-wide lowercase">
-                    connection_gateway.yml
+                    connection_gateway
                   </span>
                 </div>
                 <span className="font-mono text-[9px] uppercase tracking-wider text-cyan-400 font-bold animate-pulse">
@@ -131,9 +141,6 @@ export default function Contact() {
                       <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
                     )}
                     <div className="text-xs sm:text-sm font-sans leading-normal">
-                      <span className="font-bold uppercase tracking-wide mr-1.5">
-                        {responseStatus === "success" ? "Buffer logged:" : "Syntax error:"}
-                      </span>
                       {statusMessage}
                     </div>
                   </motion.div>
@@ -145,7 +152,10 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Name field */}
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="form-name" className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold">
+                    <label
+                      htmlFor="form-name"
+                      className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold"
+                    >
                       Name <span className="text-cyan-400">*</span>
                     </label>
                     <input
@@ -161,7 +171,10 @@ export default function Contact() {
 
                   {/* Email field */}
                   <div className="flex flex-col gap-2">
-                    <label htmlFor="form-email" className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold">
+                    <label
+                      htmlFor="form-email"
+                      className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold"
+                    >
                       Email address <span className="text-cyan-400">*</span>
                     </label>
                     <input
@@ -178,7 +191,10 @@ export default function Contact() {
 
                 {/* Subject field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="form-subject" className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold">
+                  <label
+                    htmlFor="form-subject"
+                    className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold"
+                  >
                     Subject
                   </label>
                   <input
@@ -194,7 +210,10 @@ export default function Contact() {
 
                 {/* Message field */}
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="form-message" className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold">
+                  <label
+                    htmlFor="form-message"
+                    className="font-mono text-[10px] uppercase text-slate-500 tracking-wider font-bold"
+                  >
                     Transmission body <span className="text-cyan-400">*</span>
                   </label>
                   <textarea
@@ -220,7 +239,7 @@ export default function Contact() {
                     disabled={loading}
                     className="group px-6 py-3 bg-white text-black font-sans text-xs font-bold uppercase rounded-xl hover:bg-slate-200 transition-all flex items-center gap-2 cursor-pointer disabled:opacity-50"
                   >
-                    <span>{loading ? "TRANSMITTING..." : "TRANSMIT NODE"}</span>
+                    <span>{loading ? "SENDING....." : "SEND MESSAGE"}</span>
                     <Send className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </button>
                 </div>
@@ -235,57 +254,72 @@ export default function Contact() {
                 <Mail className="w-4 h-4 text-cyan-400" />
                 <span>Contact Coordinates</span>
               </h3>
-              
+
               <ul className="flex flex-col gap-3 font-sans text-xs text-slate-400">
                 <li className="flex items-center gap-4 py-1.5 border-b border-white/5">
-                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">EMAIL</span>
-                  <a href={`mailto:${PERSONAL_INFO.socials.email}`} className="text-slate-200 hover:text-cyan-450 transition-colors">
+                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">
+                    EMAIL
+                  </span>
+                  <a
+                    href={`mailto:${PERSONAL_INFO.socials.email}`}
+                    className="text-slate-200 hover:text-cyan-450 transition-colors"
+                  >
                     {PERSONAL_INFO.socials.email}
                   </a>
                 </li>
                 <li className="flex items-center gap-4 py-1.5 border-b border-white/5">
-                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">GITHUB</span>
-                  <a href={PERSONAL_INFO.socials.github} target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-cyan-450 transition-colors">
-                    github.com/marcussterling
+                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">
+                    GITHUB
+                  </span>
+                  <a
+                    href={PERSONAL_INFO.socials.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-200 hover:text-cyan-450 transition-colors"
+                  >
+                    {PERSONAL_INFO.socials.github}
                   </a>
                 </li>
                 <li className="flex items-center gap-4 py-1.5 border-b border-white/5">
-                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">LINKEDIN</span>
-                  <a href={PERSONAL_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-cyan-450 transition-colors">
-                    linkedin.com/in/msterling
+                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">
+                    LINKEDIN
+                  </span>
+                  <a
+                    href={PERSONAL_INFO.socials.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-200 hover:text-cyan-450 transition-colors"
+                  >
+                    {PERSONAL_INFO.socials.linkedin}
                   </a>
                 </li>
                 <li className="flex items-center gap-4 py-1.5">
-                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">LOCATION</span>
-                  <span className="text-slate-200">
-                    Syracuse dev node, NY [EST]
+                  <span className="font-mono text-[10px] uppercase text-slate-500 w-16">
+                    LOCATION
                   </span>
+                  <span className="text-slate-200">Karnataka, India</span>
                 </li>
               </ul>
             </div>
 
             {/* In-Memory database activity panel */}
-            <div className="p-6 bg-zinc-950/90 border border-white/10 rounded-2xl flex-grow shadow-lg">
+            <div className="p-6 bg-zinc-950/90 border border-white/10 rounded-2xl grow shadow-lg">
               <div className="flex items-center justify-between mb-4 border-b border-white/5 pb-3">
                 <h3 className="font-display text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
                   <History className="w-4 h-4 text-purple-400" />
-                  <span>Real-time Connection Logs</span>
+                  <span>Real-time Message Logs</span>
                 </h3>
-                
+
                 <span className="font-mono text-[10px] bg-purple-950/30 border border-purple-500/10 text-purple-400 rounded px-1.5 py-0.5">
                   {serverInquiries.length} Active
                 </span>
               </div>
 
-              <p className="font-sans text-xs text-slate-500 mb-4 leading-normal">
-                This is a live look at the Node.js Express server message buffer. Try submitting a message on the left to see your payload instantiate in real-time below!
-              </p>
-
               {/* Scrollable message stack */}
               <div className="max-h-56 overflow-y-auto flex flex-col gap-3 pr-1">
                 {serverInquiries.length === 0 ? (
                   <div className="text-center py-6 text-zinc-600 font-mono text-xs">
-                    // BUFFER EMPTIED
+                    0 Message Buffers
                   </div>
                 ) : (
                   [...serverInquiries].reverse().map((msg, index) => (
@@ -298,16 +332,21 @@ export default function Contact() {
                           {msg.name}
                         </span>
                         <span className="font-mono text-[9px] text-zinc-500">
-                          {new Date(msg.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                          {new Date(msg.createdAt).toLocaleTimeString([], {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          })}
                         </span>
                       </div>
-                      
-                      <div className="font-serif italic text-slate-400 text-[11px] leading-relaxed break-words font-light">
+
+                      <div className="font-serif italic text-slate-400 text-[11px] leading-relaxed wrap-break-word font-light">
                         "{msg.message}"
                       </div>
-                      
+
                       <div className="flex justify-between items-center text-[10px] text-zinc-500 pt-1 border-t border-white/5 border-dashed">
-                        <span className="font-mono truncate max-w-[150px]">{msg.email}</span>
+                        <span className="font-mono truncate max-w-37.5">
+                          {msg.email}
+                        </span>
                         <span className="font-mono uppercase font-bold text-purple-500 tracking-wider">
                           INDEX {serverInquiries.length - index}
                         </span>

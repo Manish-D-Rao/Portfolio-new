@@ -53,7 +53,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
             <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-white/10 flex items-center justify-center group-hover:border-cyan-400/50 transition-colors duration-300">
               <Terminal className="w-4 h-4 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
             </div>
-            <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
               Manish
             </span>
             <span className="text-cyan-400 font-mono text-sm leading-none opacity-80 group-hover:opacity-100 transition-all">
@@ -70,14 +70,20 @@ export default function Navbar({ activeSection, scrollToSection }) {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-4 py-1.5 font-sans text-xs font-medium tracking-wide uppercase rounded-full transition-colors cursor-pointer ${
-                    isActive ? "text-cyan-400" : "text-slate-400 hover:text-white"
+                    isActive
+                      ? "text-cyan-400"
+                      : "text-slate-400 hover:text-white"
                   }`}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="nav-bg-pill"
                       className="absolute inset-0 bg-white/5 border border-white/10 rounded-full"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
                   <span className="relative z-10">{item.label}</span>
@@ -93,7 +99,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
               className="inline-flex items-center gap-2 px-4 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 hover:text-cyan-300 border border-cyan-500/20 hover:border-cyan-500/30 font-sans text-xs font-semibold uppercase tracking-wider rounded-lg transition-all duration-300 cursor-pointer"
             >
               <Cpu className="w-3.5 h-3.5" />
-              <span>Deploy Message</span>
+              <span>Send Message</span>
             </button>
           </div>
 
@@ -125,7 +131,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
             className="fixed inset-0 min-h-screen bg-black/95 backdrop-blur-lg z-45 flex flex-col justify-center items-center md:hidden"
           >
             {/* Custom glowing design element inside menu */}
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-cyan-500/10 blur-[100px] top-1/4 left-1/2 -translate-x-1/2 -z-10 pointer-events-none" />
+            <div className="absolute w-75 h-75 rounded-full bg-cyan-500/10 blur-[100px] top-1/4 left-1/2 -translate-x-1/2 -z-10 pointer-events-none" />
 
             <nav className="flex flex-col items-center gap-6">
               {NAVIGATION_ITEMS.map((item, index) => {
@@ -141,7 +147,9 @@ export default function Navbar({ activeSection, scrollToSection }) {
                   >
                     <span
                       className={`transition-colors ${
-                        isActive ? "text-cyan-400" : "text-slate-400 group-hover:text-white"
+                        isActive
+                          ? "text-cyan-400"
+                          : "text-slate-400 group-hover:text-white"
                       }`}
                     >
                       {item.label}
@@ -149,7 +157,7 @@ export default function Navbar({ activeSection, scrollToSection }) {
                     {isActive && (
                       <motion.div
                         layoutId="nav-mobile-underline"
-                        className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-cyan-400 to-purple-500"
+                        className="absolute bottom-0 left-0 w-full h-0.5 bg-linear-to-r from-cyan-400 to-purple-500"
                       />
                     )}
                   </motion.button>
@@ -158,15 +166,15 @@ export default function Navbar({ activeSection, scrollToSection }) {
             </nav>
 
             {/* Quick Mobile Social Footer info */}
-            <div className="absolute bottom-12 flex flex-col items-center gap-3">
+            <div className="absolute bottom-12 flex flex-col items-center gap-2 ">
               <span className="text-zinc-600 font-mono text-xs tracking-widest lowercase">
                 sys_status: ONLINE
               </span>
               <button
                 onClick={() => handleMobileNavClick("contact")}
-                className="px-6 py-2 bg-gradient-to-r from-cyan-500/25 to-purple-500/25 border border-cyan-500/30 text-cyan-300 font-sans text-xs tracking-widest uppercase rounded-lg cursor-pointer"
+                className="px-6 py-2 bg-linear-to-r from-cyan-500/25 to-purple-500/25 border border-cyan-500/30 text-cyan-300 font-sans text-xs tracking-widest uppercase rounded-lg cursor-pointer"
               >
-                Connect Terminal
+                Send Message
               </button>
             </div>
           </motion.div>

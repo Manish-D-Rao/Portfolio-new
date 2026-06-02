@@ -4,20 +4,20 @@ import { TIMELINE } from "../data.js";
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-28 px-6 bg-black overflow-hidden">
+    <section
+      id="experience"
+      className="relative py-28 px-6 bg-black overflow-hidden"
+    >
       {/* Background grids and glowing details */}
       <div className="absolute inset-0 bg-radial-at-b from-purple-950/10 via-transparent to-transparent pointer-events-none -z-10" />
 
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="mb-24 text-center">
-          <span className="font-mono text-xs uppercase tracking-widest text-cyan-400 font-semibold mb-3 block">
-            // RECORD INDEX [STREAMS]
-          </span>
           <h2 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white uppercase">
             Professional Chronology
           </h2>
-          <div className="h-[2px] w-20 bg-gradient-to-r from-cyan-400 to-purple-500 mt-4 mx-auto" />
+          <div className="h-0.5 w-20 bg-linear-to-r from-cyan-400 to-purple-500 mt-4 mx-auto" />
         </div>
 
         {/* Vertical timeline stack */}
@@ -25,7 +25,10 @@ export default function Experience() {
           {TIMELINE.map((item, idx) => {
             // Pick icon dynamically
             let IconComponent = Briefcase;
-            if (item.role.toLowerCase().includes("b.s") || item.company.toLowerCase().includes("university")) {
+            if (
+              item.role.toLowerCase().includes("b.s") ||
+              item.company.toLowerCase().includes("university")
+            ) {
               IconComponent = GraduationCap;
             } else if (item.role.toLowerCase().includes("intern")) {
               IconComponent = Award;
@@ -41,12 +44,12 @@ export default function Experience() {
                 className="relative pl-8 sm:pl-12 group"
               >
                 {/* Timeline Pulsing Node */}
-                <div className="absolute left-[-16px] top-1.5 w-8 h-8 rounded-full bg-zinc-950 border border-white/15 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.35)] transition-all duration-300">
+                <div className="absolute -left-4 top-1.5 w-8 h-8 rounded-full bg-zinc-950 border border-white/15 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:shadow-[0_0_15px_rgba(6,182,212,0.35)] transition-all duration-300">
                   <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:scale-125 transition-transform" />
                 </div>
 
                 {/* Left Floating Micro Timestamp for wide views */}
-                <span className="absolute left-[-160px] top-2 hidden xl:block w-32 text-right font-mono text-[10px] uppercase font-bold tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">
+                <span className="absolute -left-40 top-2 hidden xl:block w-32 text-right font-mono text-[10px] uppercase font-bold tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">
                   {item.period}
                 </span>
 
@@ -64,10 +67,6 @@ export default function Experience() {
                       <div className="flex items-center gap-2 mt-1">
                         <span className="font-sans text-sm font-medium text-slate-300">
                           {item.company}
-                        </span>
-                        <div className="w-1 h-1 rounded-full bg-zinc-600" />
-                        <span className="font-mono text-[10px] text-zinc-500 tracking-wide uppercase">
-                          NOD_X
                         </span>
                       </div>
                     </div>
