@@ -20,7 +20,7 @@ async function startServer() {
 
   // Middleware for parsing body
   app.use(express.json());
-  app.use(cors({ origin: ENV.CLIENT_URL, credentials: true }));
+  app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 
   // API to fetch messages (for interactive recruiter playground!)
   app.get("/api/messages", async (_, res) => {
